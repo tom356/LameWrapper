@@ -1,0 +1,7 @@
+Release
+sounds
+*.mp3
+*.wav
+workshop
+main_lame_test.cpp
+doc

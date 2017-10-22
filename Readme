@@ -1,0 +1,14 @@
+A small LAME API
+
+Platform: Linux
+Dependencies: LAME
+
+Build:
+Requires gcc for compilation
+Requires installed lame ( which can be done by typeing "sudo apt install lame" in terminal )
+Building is done via makefile, get into directory of the project folder and type "make" in console
+
+Options:
+Program requires 2 parameters to run
+-i input wav file
+-o name of the outupt mp3, for example "result.mp3"
