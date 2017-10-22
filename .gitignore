@@ -5,3 +5,5 @@ sounds
 workshop
 main_lame_test.cpp
 doc
+LameWrapper2.cpp
+LameWrapper2.h

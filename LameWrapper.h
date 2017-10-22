@@ -4,6 +4,7 @@
 #include<string>
 #include<vector>
 #include<fstream>
+#include<lame/lame.h>
 
 namespace lameWrapper
 {
@@ -28,9 +29,9 @@ namespace lameWrapper
 	};
 	struct DATA
 	{
-		char id[4];	// "data"
+		char id[4];
 		int32_t size;
-		std::vector<char> data;	
+		std::vector<char> samples;	
 		DATA();
 	};
 	struct WAVE
@@ -40,7 +41,10 @@ namespace lameWrapper
 		DATA data;
 		WAVE();
 	};
-
+	
+	enum WAVEFormatCode{WAVE_FORMAT_PCM = 1, WAVE_FORMAT_IEEE_FLOAT = 3, WAVE_FORMAT_ALAW = 6, WAVE_FORMAT_MULAW = 7, WAVE_FORMAT_EXTANSIBLE = 65534};
+	
+	// all below could be hidden
 	bool getRiffID(std::ifstream &file, RIFF &riff);
 	bool getRiffSize(std::ifstream &file, RIFF &riff);
 	bool getRiffFormat(std::ifstream &file, RIFF &riff);
@@ -55,8 +59,16 @@ namespace lameWrapper
 	bool getDataID(std::ifstream &file, DATA &data);
 	bool getDataSize(std::ifstream &file, DATA &data);
 	bool getDataSamples(std::ifstream &file, DATA &data);
-	bool loadWave(std::string filePath, WAVE &wf);
-	void init_lame_params(lame_t &lame, WAWE &wf);
-	void waveToMp3();
+	int16_t endianSwap(int16_t i);
+	int32_t endianSwap(int32_t i);
+		
+	// this ones are useful
+	bool loadWave(const std::string &filePath, WAVE &wf);
+	void printWaveInfo(WAVE &wf);
+	void init_lame_params(lame_t &lame, WAVE &wf);
+	bool encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
+	bool encode_16bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
+		
+	bool waveToMp3(const std::string &in, const std::string &out);
 }
 #endif

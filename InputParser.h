@@ -3,7 +3,7 @@
 
 #include<string>
 
-namespace LameWrapper
+namespace lameWrapper
 {
 	enum Options{OPTIONS_INPUT,OPTIONS_OUTPUT,OPTIONS_INVALID};
 	enum ParseErrors{ ERROR_UNKNOWN_PARAM=1, ERROR_NO_VALUE};	
