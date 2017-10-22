@@ -66,8 +66,8 @@ namespace lameWrapper
 	bool loadWave(const std::string &filePath, WAVE &wf);
 	void printWaveInfo(WAVE &wf);
 	void init_lame_params(lame_t &lame, WAVE &wf);
-	bool encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
-	bool encode_16bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
+	bool encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File);
+	bool encode_16bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File);
 		
 	bool waveToMp3(const std::string &in, const std::string &out);
 }

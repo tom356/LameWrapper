@@ -177,7 +177,7 @@ void lameWrapper::init_lame_params(lame_t &lame, WAVE &wf)
 		
 	lame_init_params(lame);		
 }
-bool encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
+bool lameWrapper::encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
 {
 	// init pcm buffer
 	std::vector<short int> pcm_buffer;
@@ -219,7 +219,7 @@ bool encode_8bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_
 	
 	return true;
 }
-bool encode_16bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
+bool lameWrapper::encode_16bps(lame_t &lame, WAVE &wave_file, std::vector<unsigned char> &mp3_buffer, std::ofstream &mp3File)
 {
 	// encode
 	std::cout << "encoding..." << std::endl;
