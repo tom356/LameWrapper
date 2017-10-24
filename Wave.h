@@ -3,6 +3,7 @@
 
 #include<vector>
 #include<fstream>
+#include<stdint.h>
 
 namespace lamewrapper
 {
