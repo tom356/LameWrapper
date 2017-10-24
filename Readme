@@ -10,5 +10,5 @@ Building is done with makefile, get into directory of the project folder and typ
 
 Options:
 Program requires 2 parameters to run
--i input wav file
--o name of the outupt mp3, for example "result.mp3"
+-i input wav file, " -i input.wav"
+-o name of the outupt mp3, "-o result.mp3"
