@@ -9,8 +9,8 @@ MODE= Release
 OBJDIR=$(MODE)
 BINDIR=$(MODE)
 	
-$(BINDIR)/encoder: makeFolders $(OBJDIR)/main.o $(OBJDIR)/InputParser.o $(OBJDIR)/LameWrapper.o
-	$(CC) $(OBJDIR)/main.o $(OBJDIR)/InputParser.o $(OBJDIR)/LameWrapper.o $(CLIB_ALL) -o $(BINDIR)/encoder
+$(BINDIR)/encode: makeFolders $(OBJDIR)/main.o $(OBJDIR)/InputParser.o $(OBJDIR)/LameWrapper.o $(OBJDIR)/Wave.o
+	$(CC) $(OBJDIR)/main.o $(OBJDIR)/InputParser.o $(OBJDIR)/LameWrapper.o $(OBJDIR)/Wave.o $(CLIB_ALL) -o $(BINDIR)/encode
 
 $(OBJDIR)/main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp -o $(OBJDIR)/main.o
@@ -20,6 +20,9 @@ $(OBJDIR)/InputParser.o: InputParser.cpp InputParser.h
 
 $(OBJDIR)/LameWrapper.o: LameWrapper.cpp LameWrapper.h
 	$(CC) $(CFLAGS) LameWrapper.cpp -o $(OBJDIR)/LameWrapper.o
+
+$(OBJDIR)/Wave.o: Wave.cpp Wave.h
+	$(CC) $(CFLAGS) Wave.cpp -o $(OBJDIR)/Wave.o
 
 makeFolders:
 	@mkdir -p $(OBJDIR)

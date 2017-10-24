@@ -1,9 +1,6 @@
 Release
 sounds
+workshop
 *.mp3
 *.wav
-workshop
-main_lame_test.cpp
 doc
-LameWrapper2.cpp
-LameWrapper2.h

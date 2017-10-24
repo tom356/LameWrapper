@@ -1,10 +1,10 @@
 #include<iostream>
 #include "InputParser.h"
-using namespace lameWrapper;
+using namespace lamewrapper;
 
 Params::Params():input(""),output(""){}
 
-void lameWrapper::setParam(Options option, std::string value, Params &p)
+void lamewrapper::setParam(Options option, std::string value, Params &p)
 {
 	switch(option)
 	{
@@ -14,13 +14,13 @@ void lameWrapper::setParam(Options option, std::string value, Params &p)
 	}
 }
 
-Options lameWrapper::getOptionType(const std::string &s)
+Options lamewrapper::getOptionType(const std::string &s)
 {
 	if(s == "-i") return OPTIONS_INPUT;
 	else if(s == "-o") return OPTIONS_OUTPUT;
 	else return OPTIONS_INVALID;
 }
-int lameWrapper::parseInput(int argc, char**argv, Params &params)
+int lamewrapper::parseInput(int argc, char**argv, Params &params)
 {
 	std::string param,value;
 	Options type;
