@@ -125,7 +125,7 @@ bool Encoder::encode_16bps()
 	{	
 		write = lame_encode_buffer_interleaved(mLame, 
 											   pcmBuffer.data(), 
-											   pcmBuffer.size(),
+											   pcmBuffer.size()/2,// num samples in L or R channels
 											   mMp3Buffer.data(), 
 											   mMp3Buffer.size() );
 	}
