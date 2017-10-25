@@ -289,9 +289,10 @@ void Wave::copySamples(std::vector<short int> &samples)
 	if(mWave.fmt.bps == 16)
 	{		
 		samples.resize(mWave.data.size/2);
-		memcpy(samples.data(), mWave.data.samples.data(), mWave.data.size/2);
-		//for(int i=0;i<mWave.data.size/2;i++)
-		//	samples[i] = static_cast<short int>(mWave.data.samples[2*i]|(mWave.data.samples[2*i+1]<<8));//memcpy?
+		memcpy(samples.data(), mWave.data.samples.data(), mWave.data.size);
+//		for(int i=0;i<mWave.data.size/2;i++)
+//			samples[i] = static_cast<short int>(static_cast<unsigned char>(mWave.data.samples[2*i])|
+//								static_cast<unsigned char>(mWave.data.samples[2*i+1])<<8 );
 	}
 }
 Wave::Wave()
